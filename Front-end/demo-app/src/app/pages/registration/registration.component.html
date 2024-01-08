@@ -1,0 +1,48 @@
+<div class="mb-3">
+  <label for="txtFirstName" class="form-label">First Name</label>
+  <!--Input field-->
+  <input
+    type="text"
+    class="form-control"
+    id="txtFirstName"
+    placeholder="First Name"
+    [(ngModel)]="student.firstName"
+  >
+</div>
+
+<!--[(ngModel)] is a two way binding property-->
+
+<div class="mb-3">
+  <label for="txtLastName" class="form-label">Last Name</label>
+  <input
+    type="text"
+    class="form-control"
+    id="txtLastName"
+    placeholder="Last Name"
+    [(ngModel)]="student.lastName"
+  >
+</div>
+
+<div class="mb-3">
+  <label for="txtContactNum" class="form-label">Contact Number</label>
+  <input
+    type="number"
+    class="form-control"
+    id="txtContactNum"
+    placeholder="Last Name"
+    [(ngModel)]="student.contactNumber"
+  >
+</div>
+
+<div>
+<!--  (click) is a binding event-->
+  <button
+    [disabled]="isSubmissionDisabled"
+    (click)="createStudent()"
+    class="btn btn-primary">
+    Proceed
+  </button>
+</div>
+
+
+

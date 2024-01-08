@@ -1,0 +1,11 @@
+application:
+  institute: ICETV3
+
+spring:
+  datasource:
+    url : jdbc:mysql://localhost:3306/105_institute
+    password: 1234
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
