@@ -7,8 +7,10 @@ import {HttpClient} from "@angular/common/http";
   styleUrl: './student-list.component.css'
 })
 export class StudentListComponent implements OnInit {
-  //--life cycle method
 
+  //--To temporarily store data
+  public deleteStudent: any;
+  public updateStudent: any;
 
   public http;
   public studentList: any;
@@ -17,6 +19,7 @@ export class StudentListComponent implements OnInit {
     this.http = httpClient;
   }
 
+  //--life cycle method
   ngOnInit(): void {
     this.loadStudents();
   }

@@ -1,7 +1,6 @@
 
 €
-java:S1488"cImmediately return this expression instead of assigning it to the temporary variable "studentList".(ı§¹å8ù³¶Î1
+java:S1488"cImmediately return this expression instead of assigning it to the temporary variable "studentList".(ı§¹å8Ó»ÏÎ1
 _
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8¿»Õ·Î1
-b
-java:S1128"ERemove this unused import 'edu.icet.service.impl.StudentServiceImpl'.(İå¡8İì£ÇÎ1
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8Û»ÏÎ1
+X	java:S125&"<This block of commented-out lines of code should be removed.(ùä±8üÁÚÏÎ1

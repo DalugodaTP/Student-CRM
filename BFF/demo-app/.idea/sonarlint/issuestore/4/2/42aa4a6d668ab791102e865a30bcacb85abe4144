@@ -1,7 +1,10 @@
 
+r
+java:S3655,"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(«®óúÿÿÿÿ8íß°ÏÎ1
+r
+java:S3655?"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(«®óúÿÿÿÿ8ÕÂ®ÏÎ1
 _
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8Êßç·Î1
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8…“§ÏÎ1
 _
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8Êßç·Î1
-g
-java:S1128	"ERemove this unused import 'org.springframework.stereotype.Component'.(Ş÷Ñ¸ÿÿÿÿÿ8°¾Ÿ¿Î1
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8…“§ÏÎ1
+]	java:S1251"<This block of commented-out lines of code should be removed.(ºµ“õüÿÿÿÿ8´İÏÎ1

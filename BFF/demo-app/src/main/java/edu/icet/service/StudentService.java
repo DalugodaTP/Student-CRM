@@ -12,6 +12,14 @@ import java.util.List;
 public interface StudentService {
     public List<Student> getStudentList();
 
-    public StudentEntity addStudent(@RequestBody Student student);
+    public Student getStudentById(Long studentId);
+
+//    public StudentEntity addStudent(@RequestBody Student student);
+
+    //--update operation
+    public Student updateStudent(Student student, Long studentId);
+
+    //--delete operation
+    public void deleteStudentById(Long studentId);
 
 }

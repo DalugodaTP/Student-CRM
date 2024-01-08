@@ -30,10 +30,23 @@ public class StudentControllerImpl implements StudentController {
         return studentList;
     }
 
-    //--post API
-    public void addStudent(Student student) throws InterruptedException {
-        Thread.sleep(2000);
-        service.addStudent(student);
+    @Override
+    public Student getStudentById(Long studentId) {
+        return service.getStudentById(studentId);
     }
 
+//    public void addStudent(Student student) throws InterruptedException {
+//        Thread.sleep(2000);
+//        service.addStudent(student);
+//    }
+
+    @Override
+    public Student updateStudent(Student student, Long studentId) {
+        return service.updateStudent(student, studentId);
+    }
+
+    @Override
+    public void deleteStudentById(Long studentId) {
+        service.deleteStudentById(studentId);
+    }
 }

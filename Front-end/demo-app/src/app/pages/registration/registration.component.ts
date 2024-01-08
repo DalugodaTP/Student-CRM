@@ -8,6 +8,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class RegistrationComponent {
 
+
   public isSubmissionDisabled = false;
 
   private http;
