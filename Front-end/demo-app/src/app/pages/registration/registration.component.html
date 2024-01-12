@@ -35,14 +35,44 @@
 </div>
 
 <div>
-<!--  (click) is a binding event-->
+  <!--  (click) is a binding event-->
   <button
     [disabled]="isSubmissionDisabled"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
     (click)="createStudent()"
     class="btn btn-primary">
     Proceed
   </button>
 </div>
 
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h2 class="fw-bold mb-0">Student Registered Successfully</h2>
+
+        <ul class="d-grid gap-4 my-5 list-unstyled small">
+          <li class="d-flex gap-4">
+            <svg class="bi text-body-secondary flex-shrink-0" width="48" height="48">
+              <use xlink:href="#grid-fill"/>
+            </svg>
+            <div>
+              <h5 class="mb-0">Details</h5>
+              Student Registration Id : {{recentSavedStudent && recentSavedStudent.firstName}}
+            </div>
+          </li>
+        </ul>
+        <button routerLink="/list" type="button" class="btn btn-lg btn-primary mt-5 w-100" data-bs-dismiss="modal">Go to student View
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 

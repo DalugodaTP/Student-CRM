@@ -18,6 +18,8 @@ export class RegistrationComponent {
     this.http = httpClient;
   }
 
+  public recentSavedStudent:any;
+
   // Primary objective of this component is to capture data and send it via http protocol
 
   //--create the JSON object and store into a reference object
@@ -31,14 +33,28 @@ export class RegistrationComponent {
 
   //--trigger the API call (url, JSON body)
   createStudent() {
+    this.recentSavedStudent =null;
+
     this.isSubmissionDisabled = true;
     this.http.post("http://localhost:8080/student/add", this.student)
       .subscribe(data => {
         this.isSubmissionDisabled = false;
         //--trigger a log to indicate successful post
         console.log(data);
+        this.recentSavedStudent=data;
+
+        // Reset form fields after successful submission
+        this.student = {
+          firstName: null,
+          lastName: null,
+          contactNumber: null
+        };
       })
+
   }
+
+
+
 
 
 }

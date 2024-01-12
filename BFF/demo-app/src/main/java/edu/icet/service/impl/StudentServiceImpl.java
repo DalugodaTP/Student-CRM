@@ -21,19 +21,20 @@ public class StudentServiceImpl implements StudentService {
     ObjectMapper mapper;
 
     public List<Student> getStudentList() {
-        //--create a new list
+        //--create a new list for controller layer
         List<Student> list = new ArrayList<>();
-
+        //--return the list of students from the database
         Iterable<StudentEntity> studentList = studentRepository.findAll();
-
+        //--now return the list after mapping it into a student before sending to controller layer
         Iterator<StudentEntity> iterator = studentList.iterator();
 
         while(iterator.hasNext()){
+            //--capture the item in next
             StudentEntity entity = iterator.next();
+            //--java reflection
             Student student = mapper.convertValue(entity, Student.class);
             list.add(student);
         }
-
         return list;
 
     }
@@ -46,13 +47,13 @@ public class StudentServiceImpl implements StudentService {
         return mapper.convertValue(studentEntity, Student.class);
     }
 
-//    public StudentEntity addStudent(@RequestBody Student student) {
-//        //Model to Entity Conversion
-//        StudentEntity entity = mapper.convertValue(student, StudentEntity.class);
-//
-//        //Saving Data
-//        return studentRepository.save(entity);
-//    }
+    public StudentEntity addStudent(@RequestBody Student student) {
+        //Model to Entity Conversion
+        StudentEntity entity = mapper.convertValue(student, StudentEntity.class);
+
+        //Saving Data
+        return studentRepository.save(entity);
+    }
 
     @Override
     public Student updateStudent(Student student, Long studentId) {
@@ -83,6 +84,18 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void deleteStudentById(Long studentId) {
         studentRepository.deleteById(studentId);
+    }
+
+    public boolean removeStudent(Long studentId){
+        //--validation step
+        Optional<StudentEntity> studentEntityOptional =
+                studentRepository.findById(studentId);
+
+        if (studentEntityOptional.isPresent()){
+            studentRepository.deleteById(studentId);
+            return true;
+        }
+        return false;
     }
 
 

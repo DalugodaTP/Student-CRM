@@ -9,11 +9,11 @@ import {HttpClient} from "@angular/common/http";
 export class StudentListComponent implements OnInit {
 
   //--To temporarily store data
-  public deleteStudent: any;
-  public updateStudent: any;
+  public anyStudent: any;
 
   public http;
   public studentList: any;
+  public selectedStudent: any = {};
 
   constructor(private httpClient: HttpClient) {
     this.http = httpClient;
@@ -24,6 +24,7 @@ export class StudentListComponent implements OnInit {
     this.loadStudents();
   }
 
+
   loadStudents() {
     this.http.get("http://localhost:8080/student/list")
       .subscribe((data: any) => {
@@ -32,4 +33,34 @@ export class StudentListComponent implements OnInit {
         this.studentList = data;
       })
   }
+
+  deleteStudent() {
+    //--Incorporate the studentId into the URL
+
+    let apiUrl = "http://localhost:8080/student/" + this.selectedStudent.id;
+
+    this.http.delete(apiUrl)
+      .subscribe(data => {
+        console.log(data);
+        this.loadStudents();
+      })
+  }
+
+
+  saveStudent() {
+
+    this.http.post("http://localhost:8080/student/add", this.selectedStudent)
+      .subscribe(data => {
+        console.log(data);
+        this.selectedStudent = {};
+        this.loadStudents();
+      })
+
+  }
+
+  setSelectedStudent(student: any) {
+    this.selectedStudent = student;
+    console.log(this.selectedStudent);
+  }
+
 }

@@ -14,12 +14,14 @@ public interface StudentService {
 
     public Student getStudentById(Long studentId);
 
-//    public StudentEntity addStudent(@RequestBody Student student);
+    public StudentEntity addStudent(@RequestBody Student student);
 
     //--update operation
     public Student updateStudent(Student student, Long studentId);
 
     //--delete operation
     public void deleteStudentById(Long studentId);
+
+    public boolean removeStudent(Long studentId);
 
 }

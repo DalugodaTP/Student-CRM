@@ -3,13 +3,14 @@ package edu.icet.controller.impl;
 import edu.icet.controller.StudentController;
 import edu.icet.dto.Student;
 import edu.icet.service.StudentService;
-import edu.icet.service.impl.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -35,18 +36,27 @@ public class StudentControllerImpl implements StudentController {
         return service.getStudentById(studentId);
     }
 
-//    public void addStudent(Student student) throws InterruptedException {
+    public Student addStudent(Student student) throws InterruptedException {
 //        Thread.sleep(2000);
-//        service.addStudent(student);
+        service.addStudent(student);
+        return student;
+    }
+
+//    @Override
+//    public Student updateStudent(Student student, Long studentId) {
+//        return service.updateStudent(student, studentId);
 //    }
 
     @Override
-    public Student updateStudent(Student student, Long studentId) {
-        return service.updateStudent(student, studentId);
-    }
+    public Map deleteStudentById(Long studentId) {
+        boolean isRemoved = service.removeStudent(studentId);
 
-    @Override
-    public void deleteStudentById(Long studentId) {
-        service.deleteStudentById(studentId);
+        if (isRemoved) {
+            //--return a meaningful message in JSON format (key value)
+            return Collections.singletonMap("status", "removed student");
+        } else {
+            return Collections.singletonMap("status", "failed");
+        }
     }
 }
+
